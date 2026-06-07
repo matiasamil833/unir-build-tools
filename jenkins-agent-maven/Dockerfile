@@ -1,9 +1,9 @@
 FROM jenkins/inbound-agent as agent
 
-FROM maven:3.6.3-jdk-11-slim
+FROM maven:3.9.16-amazoncorretto-21
 
-RUN apt-get update && \
-    apt-get install -y \
+RUN yum update && \
+    yum install -y \
     git \
     libfontconfig1 \
     libfreetype6
