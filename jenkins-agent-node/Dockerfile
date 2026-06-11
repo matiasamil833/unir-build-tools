@@ -1,8 +1,8 @@
-FROM jenkins/inbound-agent as agent
+FROM jenkins/inbound-agent:latest AS agent
 
-FROM node:12.20.0-alpine3.12
+FROM node:20-alpine3.20
 
-RUN apk -U add openjdk8-jre git make
+RUN apk add --no-cache openjdk17-jre-headless git make
 
 COPY --from=agent /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-agent
 COPY --from=agent /usr/share/jenkins/agent.jar /usr/share/jenkins/agent.jar
